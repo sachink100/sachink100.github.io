@@ -1,273 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sachin Kumar - Senior DevOps Engineer</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Calibre', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0a192f;
-            color: #ccd6f6;
-            line-height: 1.6;
-        }
-        a {
-            color: #64ffda;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        h1, h2, h3 {
-            color: #e6f1ff;
-        }
-        p {
-            margin: 0 0 15px;
-        }
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 50px 0;
-        }
-
-        /* Header */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        header .photo {
-            display: flex;
-            align-items: center;
-        }
-        header img {
-            border-radius: 50%; /* Circular photo */
-            width: 60px;
-            height: 60px;
-            object-fit: cover; /* Ensure the image fits well */
-            margin-right: 20px;
-            border: 2px solid #64ffda;
-        }
-        header h1 {
-            font-size: 2rem;
-            margin: 0;
-            color: #64ffda;
-        }
-        header nav a {
-            margin-left: 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        header nav a:hover {
-            color: #64ffda;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: left;
-            padding: 100px 0;
-        }
-        .hero h1 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #64ffda;
-        }
-        .hero h2 {
-            font-size: 3rem;
-            margin: 10px 0;
-            color: #e6f1ff;
-        }
-        .hero h3 {
-            font-size: 2.5rem;
-            font-weight: 400;
-            margin-bottom: 20px;
-            color: #8892b0;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 540px;
-        }
-        .hero a.button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 20px;
-            border: 1px solid #64ffda;
-            border-radius: 4px;
-            color: #64ffda;
-            text-transform: uppercase;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        .hero a.button:hover {
-            background-color: #64ffda;
-            color: #0a192f;
-        }
-
-        /* Sections */
-        section {
-            padding: 50px 0;
-        }
-        h2.section-title {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        h2.section-title::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 50px;
-            height: 2px;
-            background-color: #64ffda;
-        }
-
-        /* Skills */
-        .skills ul {
-            list-style: none;
-            padding-left: 0;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(140px, 200px));
-            gap: 10px;
-        }
-        .skills ul li {
-            padding-left: 20px;
-            position: relative;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: #8892b0;
-        }
-        .skills ul li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: #64ffda;
-        }
-
-        /* Experience */
-        .experience ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .experience ul li {
-            margin-bottom: 20px;
-        }
-        .experience h3 {
-            font-size: 1.5rem;
-            margin: 10px 0;
-        }
-        .experience h4 {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #64ffda;
-            margin-bottom: 10px;
-        }
-        .experience p {
-            margin: 0;
-            color: #8892b0;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.9rem;
-            color: #8892b0;
-            border-top: 1px solid #233554;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <div class="photo">
-            <img src="profile_circle.png" alt="Sachin Kumar Photo"> <!-- Replace with your photo's path -->
-            <h1>Sachin Kumar</h1>
-        </div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#blogs">Blog</a> <!-- Added Blog link -->
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Hello, my name is</h1>
-        <h2>Sachin Kumar.</h2>
-        <h3>Senior DevOps Engineer.</h3>
-        <p>I’m a seasoned DevOps Engineer with over 10 years of experience in AWS, Terraform, CI/CD, and more. I specialize in architecting and implementing scalable infrastructure solutions.</p>
-        <a class="button" href="#contact">Get in Touch</a>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <p>I'm a technically accomplished professional with vast experience in DevOps and System Administration. I've successfully delivered numerous critical greenfield projects, and I'm passionate about working across teams to drive technological innovation.</p>
-    </section>
-
-    <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <ul>
-            <li>AWS</li>
-            <li>Terraform</li>
-            <li>Docker</li>
-            <li>ECS/EKS</li>
-            <li>Kubernetes</li>
-            <li>Git</li>
-            <li>CI/CD</li>
-            <li>Python</li>
-            <li>Linux</li>
-        </ul>
-    </section>
-
-    <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <ul>
-            <li>
-                <h3>Senior DevOps Engineer</h3>
-                <h4>Awaze Vacation Rentals Ltd., Manchester | March 2022 — Present</h4>
-                <p>Terraformed the existing handmade infrastructure in AWS, and led the migration from on-prem to cloud with a focus on scalability and security.</p>
-            </li>
-            <!-- Additional experiences go here -->
-        </ul>
-    </section>
-
-    <section id="certifications">
-        <h2 class="section-title">Certifications</h2>
-        <ul>
-            <li>AWS Certified Solutions Architect Associate</li>
-            <li>AWS Certified DevOps Professional</li>
-            <li>Certified Kubernetes Administrator</li>
-            <li>Microsoft Certified Azure Administrator Associate</li>
-        </ul>
-    </section>
-
-    <section id="blogs">
-        <h2 class="section-title">Blog</h2>
-        <p>In the future, I’ll be sharing my thoughts on DevOps, cloud infrastructure, and more. Stay tuned!</p>
-    </section>
-
-    <section id="contact">
-        <h2 class="section-title">Contact</h2>
-        <p>If you’d like to get in touch, feel free to reach out via email or phone.</p>
-        <p>Email: <a href="mailto:sachinyadavg@gmail.com">sachinyadavg@gmail.com</a></p>
-        <p>Phone: 07384082739</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Sachin Kumar</p>
-    </footer>
-</div>
-
-</body>
-</html>
+<section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <ul>
+        <li>
+            <h3>Senior DevOps Engineer</h3>
+            <h4>Awaze Vacation Rentals Ltd., Manchester | March 2022 — Present</h4>
+            <p>
+                <strong>Automated Infrastructure Management:</strong> Spearheaded the transformation of manual infrastructure into fully automated environments using Terraform, significantly improving efficiency and reducing human error.
+            </p>
+            <p>
+                <strong>Optimized Infrastructure as Code (IaC):</strong> Developed and implemented shared Terraform modules, eliminating redundancy and enhancing consistency across the infrastructure codebase.
+            </p>
+            <p>
+                <strong>Architectural Leadership:</strong> Actively contributed to the Architecture Group, playing a key role in the design and architecture of cloud-based solutions on AWS.
+            </p>
+            <p>
+                <strong>Continuous Integration/Continuous Deployment (CI/CD) Automation:</strong> Engineered automated build and deployment processes in GitHub and AWS, streamlining development workflows and reducing deployment times.
+            </p>
+            <p>
+                <strong>CI/CD Pipeline Architecture:</strong> Designed and implemented robust CI/CD pipelines using AWS services such as CodeCommit, CodeDeploy, CodeBuild, and CodePipeline, ensuring seamless and reliable code delivery.
+            </p>
+            <p>
+                <strong>Hybrid Cloud Optimization:</strong> Implemented GitHub Self-Hosted runners to address challenges related to hybrid cloud models, enhancing system performance and reliability.
+            </p>
+            <p>
+                <strong>AWS Well-Architected Review:</strong> Conducted comprehensive reviews of AWS accounts against the AWS Well-Architected Framework, ensuring adherence to best practices and improving system robustness.
+            </p>
+            <p>
+                <strong>ECS Fargate Implementation:</strong> Developed and deployed Terraform modules for Amazon ECS Fargate, enabling scalable and efficient container orchestration.
+            </p>
+            <p>
+                <strong>CI/CD Pipeline with GitHub and AWS Integration:</strong> Led the creation of a Terraform-based deployment pipeline integrating GitHub Actions with AWS CodePipeline and CodeCommit, enhancing the automation and reliability of deployments.
+            </p>
+            <p>
+                <strong>Cloud Migration Leadership:</strong> Led the migration of an on-premises Docker Swarm cluster to AWS, overseeing the architecture, implementation, and setup, including ECS Fargate, ALB, and integration with GitHub Actions and other AWS services.
+            </p>
+            <p>
+                <strong>AWS Services Expertise:</strong> Extensively utilized a wide range of AWS services, including VPC, EC2, Route 53, ECS, Lambda, SNS, RDS, and WAF, to deliver secure, scalable, and high-performance cloud solutions.
+            </p>
+        </li>
+        <!-- Additional experiences go here -->
+    </ul>
+</section>
