@@ -182,6 +182,25 @@
             color: #8892b0;
             border-top: 1px solid #233554;
         }
+        .linkedin-icon {
+            display: inline-flex;
+            align-items: center;
+            color: #ccd6f6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .linkedin-icon svg {
+            margin-right: 10px;
+            fill: #ccd6f6;
+            transition: fill 0.3s ease;
+        }
+
+        .linkedin-icon:hover svg,
+        .linkedin-icon:hover {
+            fill: #64ffda;
+            color: #64ffda;
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 </head>
@@ -293,8 +312,17 @@
 
     <section id="contact">
         <h2 class="section-title">Contact</h2>
-        <p>If you’d like to get in touch, feel free to reach out via email or phone.</p>
+        <p>If you’d like to get in touch, feel free to reach out via email or connect with me on LinkedIn.</p>
         <p>Email: <a href="mailto:sachinyadavg@gmail.com">sachinyadavg@gmail.com</a></p>
+        <p>
+            <a href="https://www.linkedin.com/in/sachin-k-yadav-73909728/" class="linkedin-icon" target="_blank">
+                <!-- LinkedIn SVG Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.762 0-5 2.238-5 5v14c0 2.762 2.238 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.762-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.359c0-1.282-.026-2.932-1.787-2.932-1.788 0-2.063 1.396-2.063 2.838v5.453h-3v-10h2.879v1.367h.041c.401-.759 1.38-1.56 2.841-1.56 3.038 0 3.599 2.001 3.599 4.604v5.589z"/>
+                </svg>
+                Connect with me on LinkedIn
+            </a>
+        </p>
     </section>
 
     <footer>
