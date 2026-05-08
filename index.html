@@ -1,334 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sachin Kumar - Senior DevOps Engineer</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: 'Calibre', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0a192f;
-            color: #ccd6f6;
-            line-height: 1.6;
-        }
-        a {
-            color: #64ffda;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        h1, h2, h3 {
-            color: #e6f1ff;
-        }
-        p {
-            margin: 0 0 15px;
-        }
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 50px 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sachin Kumar — AI Infrastructure Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:          #0f0e0b;
+    --bg-mid:      #181610;
+    --bg-card:     rgba(28,25,18,0.75);
+    --gold:        #c9a84c;
+    --gold-light:  #e8c96a;
+    --gold-pale:   #f5e6b8;
+    --gold-dim:    #8a6f2e;
+    --cream:       #f2ead8;
+    --cream-dim:   #d4c9a8;
+    --warm-grey:   #8a8070;
+    --muted:       #5c5548;
+    --line:        rgba(201,168,76,0.15);
+    --line-mid:    rgba(201,168,76,0.08);
+    --tag-bg:      rgba(201,168,76,0.08);
+    --tag-border:  rgba(201,168,76,0.25);
+    --tag-ai-bg:   rgba(232,201,106,0.12);
+    --tag-ai-bdr:  rgba(232,201,106,0.35);
+  }
 
-        /* Header */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        header .photo {
-            display: flex;
-            align-items: center;
-        }
-        header img {
-            border-radius: 50%; /* Circular photo */
-            width: 60px;
-            height: 60px;
-            object-fit: cover; /* Ensure the image fits well */
-            margin-right: 20px;
-            border: 2px solid #64ffda;
-        }
-        header h1 {
-            font-size: 2rem;
-            margin: 0;
-            color: #64ffda;
-        }
-        header nav a {
-            margin-left: 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        header nav a:hover {
-            color: #64ffda;
-        }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-        /* Hero Section */
-        .hero {
-            text-align: left;
-            padding: 100px 0;
-        }
-        .hero h1 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #64ffda;
-        }
-        .hero h2 {
-            font-size: 3rem;
-            margin: 10px 0;
-            color: #e6f1ff;
-        }
-        .hero h3 {
-            font-size: 2.5rem;
-            font-weight: 400;
-            margin-bottom: 20px;
-            color: #8892b0;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 540px;
-        }
-        .hero a.button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 20px;
-            border: 1px solid #64ffda;
-            border-radius: 4px;
-            color: #64ffda;
-            text-transform: uppercase;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        .hero a.button:hover {
-            background-color: #64ffda;
-            color: #0a192f;
-        }
+  body {
+    background: var(--bg);
+    color: var(--cream-dim);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
-        /* Sections */
-        section {
-            padding: 50px 0;
-        }
-        h2.section-title {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        h2.section-title::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 50px;
-            height: 2px;
-            background-color: #64ffda;
-        }
+  /* subtle grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line-mid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-mid) 1px, transparent 1px);
+    background-size: 72px 72px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 30%, transparent 100%);
+  }
 
-        /* Skills */
-        .skills ul {
-            list-style: none;
-            padding-left: 0;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(140px, 200px));
-            gap: 10px;
-        }
-        .skills ul li {
-            padding-left: 20px;
-            position: relative;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: #8892b0;
-        }
-        .skills ul li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: #64ffda;
-        }
+  /* glow orbs */
+  .orb { position: fixed; border-radius: 50%; filter: blur(140px); pointer-events: none; z-index: 0; }
+  .orb-1 { width: 700px; height: 500px; background: #7a5a10; opacity: 0.18; top: -180px; right: -100px; }
+  .orb-2 { width: 400px; height: 400px; background: #4a3a08; opacity: 0.22; bottom: 100px; left: -120px; }
+  .orb-3 { width: 300px; height: 300px; background: #c9a84c; opacity: 0.055; top: 40%; left: 50%; transform: translateX(-50%); }
 
-        /* Experience */
-        .experience ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .experience ul li {
-            margin-bottom: 20px;
-        }
-        .experience h3 {
-            font-size: 1.5rem;
-            margin: 10px 0;
-        }
-        .experience h4 {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #64ffda;
-            margin-bottom: 10px;
-        }
-        .experience p {
-            margin: 0;
-            color: #8892b0;
-        }
+  .wrapper {
+    position: relative; z-index: 1;
+    max-width: 920px; margin: 0 auto;
+    padding: 0 36px 100px;
+  }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.9rem;
-            color: #8892b0;
-            border-top: 1px solid #233554;
-        }
-        .linkedin-icon {
-            display: inline-flex;
-            align-items: center;
-            color: #ccd6f6;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+  /* ── HEADER ── */
+  header {
+    padding: 88px 0 64px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 60px;
+  }
 
-        .linkedin-icon svg {
-            margin-right: 10px;
-            fill: #ccd6f6;
-            transition: fill 0.3s ease;
-        }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px; font-weight: 400;
+    letter-spacing: 0.22em; color: var(--gold-dim);
+    text-transform: uppercase; margin-bottom: 22px;
+    opacity: 0; animation: fadeUp 0.6s ease 0.05s both;
+  }
 
-        .linkedin-icon:hover svg,
-        .linkedin-icon:hover {
-            fill: #64ffda;
-            color: #64ffda;
-        }
-    </style>
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 9vw, 88px);
+    font-weight: 300; line-height: 0.95;
+    color: var(--cream); letter-spacing: -0.01em;
+    margin-bottom: 12px;
+    opacity: 0; animation: fadeUp 0.7s ease 0.15s both;
+  }
+  h1 em { font-style: italic; color: var(--gold-light); }
+
+  .gold-rule {
+    width: 48px; height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-bottom: 18px;
+    opacity: 0; animation: fadeUp 0.7s ease 0.25s both;
+  }
+
+  .tagline {
+    font-size: 14.5px; font-weight: 300;
+    color: var(--gold); margin-bottom: 30px;
+    opacity: 0; animation: fadeUp 0.7s ease 0.3s both;
+    letter-spacing: 0.05em;
+  }
+  .tagline span { color: var(--muted); margin: 0 8px; }
+
+  .contact-row {
+    display: flex; flex-wrap: wrap; gap: 6px 24px;
+    opacity: 0; animation: fadeUp 0.7s ease 0.38s both;
+  }
+  .contact-item {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; color: var(--warm-grey);
+    display: flex; align-items: center; gap: 7px;
+  }
+  .contact-item a { color: var(--warm-grey); text-decoration: none; transition: color 0.2s; }
+  .contact-item a:hover { color: var(--gold-light); }
+  .pip { width: 4px; height: 4px; background: var(--gold-dim); border-radius: 50%; flex-shrink: 0; }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 56px; opacity: 0; animation: fadeUp 0.65s ease both; }
+  .section:nth-child(2) { animation-delay: 0.30s; }
+  .section:nth-child(3) { animation-delay: 0.40s; }
+  .section:nth-child(4) { animation-delay: 0.50s; }
+  .section:nth-child(5) { animation-delay: 0.60s; }
+  .section:nth-child(6) { animation-delay: 0.70s; }
+  .section:nth-child(7) { animation-delay: 0.80s; }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold-dim);
+    margin-bottom: 22px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--line) 0%, transparent 80%);
+  }
+
+  /* ── PROFILE ── */
+  .profile-text {
+    font-size: 15px; line-height: 1.85;
+    color: var(--cream-dim); font-weight: 300;
+    padding: 26px 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--gold);
+    border-radius: 1px;
+    backdrop-filter: blur(10px);
+  }
+  .profile-text strong { color: var(--cream); font-weight: 500; }
+
+  /* ── SKILLS ── */
+  .skill-group { margin-bottom: 20px; }
+  .skill-group-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px; padding: 4px 13px;
+    background: var(--tag-bg); border: 1px solid var(--tag-border);
+    border-radius: 1px; color: var(--gold);
+    white-space: nowrap; transition: all 0.2s ease;
+    cursor: default; letter-spacing: 0.02em;
+  }
+  .tag:hover { background: rgba(201,168,76,0.16); border-color: var(--gold); color: var(--gold-pale); transform: translateY(-1px); }
+  .tag.ai { background: var(--tag-ai-bg); border-color: var(--tag-ai-bdr); color: var(--gold-light); }
+  .tag.ai:hover { background: rgba(232,201,106,0.2); border-color: var(--gold-light); color: var(--gold-pale); }
+
+  /* ── JOB CARDS ── */
+  .job {
+    padding: 28px 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 2px; margin-bottom: 14px;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .job::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; width: 2px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    opacity: 0; transition: opacity 0.25s;
+  }
+  .job:hover { border-color: rgba(201,168,76,0.3); }
+  .job:hover::before { opacity: 1; }
+
+  .job-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; flex-wrap: wrap;
+    gap: 10px 20px; margin-bottom: 4px;
+  }
+  .job-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px; font-weight: 400;
+    color: var(--cream); letter-spacing: 0.01em; line-height: 1.2;
+  }
+  .job-dates {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    white-space: nowrap; padding: 3px 10px;
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 1px; letter-spacing: 0.04em;
+  }
+  .job-company {
+    font-size: 12.5px; color: var(--warm-grey);
+    margin-bottom: 18px; font-style: italic;
+  }
+  .subsection-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold-dim);
+    margin: 18px 0 10px; padding-bottom: 7px;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .bullets { list-style: none; }
+  .bullets li {
+    position: relative; padding-left: 18px;
+    font-size: 14px; color: var(--cream-dim);
+    margin-bottom: 7px; line-height: 1.7; font-weight: 300;
+  }
+  .bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--gold-dim); font-size: 11px; top: 4px; }
+  .bullets li strong { color: var(--cream); font-weight: 500; }
+
+  /* ── CERTS ── */
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+  .cert-card {
+    padding: 16px 20px;
+    background: var(--bg-card); border: 1px solid var(--line);
+    border-radius: 2px; backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+  }
+  .cert-card:hover { border-color: rgba(201,168,76,0.35); transform: translateY(-2px); }
+  .cert-logo { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 6px; }
+  .cert-name { font-size: 13px; color: var(--cream); font-weight: 400; line-height: 1.4; }
+
+  /* ── EDUCATION ── */
+  .edu-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; padding: 16px 0; border-bottom: 1px solid var(--line-mid); }
+  .edu-row:last-child { border-bottom: none; }
+  .edu-degree { font-size: 15px; color: var(--cream); font-weight: 400; }
+  .edu-school  { font-size: 12.5px; color: var(--warm-grey); margin-top: 3px; font-style: italic; }
+  .edu-year    { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+
+  /* ── PRINT BTN ── */
+  .print-btn {
+    position: fixed; bottom: 32px; right: 32px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 0.12em;
+    padding: 10px 20px;
+    background: transparent; color: var(--gold);
+    border: 1px solid var(--gold-dim); border-radius: 1px;
+    cursor: pointer; text-transform: uppercase;
+    transition: all 0.2s ease; z-index: 100;
+  }
+  .print-btn:hover { background: var(--gold); color: var(--bg); box-shadow: 0 0 28px rgba(201,168,76,0.3); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; color: #222; font-size: 12.5px; }
+    body::before, .orb, .print-btn { display: none; }
+    .wrapper { padding: 0; max-width: 100%; }
+    header { padding: 16px 0 14px; border-bottom: 1.5px solid #c9a84c; margin-bottom: 18px; }
+    h1 { font-size: 40px; color: #1a1612; }
+    h1 em { color: #8a6f2e; }
+    .eyebrow, .gold-rule { opacity: 1; }
+    .eyebrow { color: #8a6f2e; }
+    .gold-rule { background: #c9a84c; }
+    .tagline { color: #7a5a10; font-size: 13px; }
+    .tagline span { color: #aaa; }
+    .contact-item, .contact-item a { color: #777; }
+    .pip { background: #c9a84c; }
+    .section-label { color: #8a6f2e; }
+    .section-label::after { background: #e8d8a0; }
+    .profile-text { background: #fdfaf4; border-color: #e8d8a0; border-left-color: #c9a84c; color: #333; }
+    .profile-text strong { color: #111; }
+    .tag { background: #fdf8ec; border-color: #e8c96a; color: #7a5a10; }
+    .tag.ai { background: #fffbf0; border-color: #f0d060; color: #5a4210; }
+    .skill-group-label { color: #999; }
+    .job { background: #fff; border: 1px solid #ede8da; }
+    .job::before { display: none; }
+    .job-title { color: #1a1612; }
+    .job-company { color: #888; }
+    .job-dates { color: #aaa; border-color: #eee; }
+    .subsection-title { color: #8a6f2e; border-color: #ede8da; }
+    .bullets li { color: #333; }
+    .bullets li::before { color: #c9a84c; }
+    .bullets li strong { color: #111; }
+    .cert-card { background: #fdfaf4; border-color: #ede8da; }
+    .cert-logo { color: #8a6f2e; }
+    .cert-name { color: #111; }
+    .edu-degree { color: #111; }
+    .edu-school { color: #888; }
+    .edu-year { color: #aaa; }
+    .section, header { animation: none !important; opacity: 1 !important; }
+    .section { margin-bottom: 20px; }
+    .job { margin-bottom: 10px; padding: 12px 14px; }
+    .certs-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .cert-card { padding: 10px 12px; }
+  }
+
+  @media (max-width: 600px) {
+    .wrapper { padding: 0 20px 70px; }
+    header { padding: 52px 0 40px; }
+    h1 { font-size: 50px; }
+    .job-header { flex-direction: column; }
+    .certs-grid { grid-template-columns: 1fr 1fr; }
+    .print-btn { bottom: 16px; right: 16px; }
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <div class="photo">
-            <img src="assets/images/profile_circle.png" alt="Sachin Kumar Photo">
-            <h1>Sachin Kumar</h1>
-        </div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#blogs">Blog</a> <!-- Added Blog link -->
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
-    <section class="hero">
-        <h1>Hello, my name is</h1>
-        <h2>Sachin Kumar.</h2>
-        <h3>Senior DevOps Engineer.</h3>
-        <p>I'm a dedicated DevOps Engineer with over a decade of experience in designing, implementing, and optimizing cloud infrastructure. My expertise lies in leveraging AWS, Terraform, Python, Docker, Kubernetes, EKS, ECS, CI/CD Pipelines, and other cutting-edge technologies to build scalable, resilient, and automated cloud solutions that drive business success.</p>
-        <a class="button" href="#contact">Get in Touch</a>
-    </section>
+<div class="wrapper">
 
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <p>I'm a seasoned DevOps and Systems Engineering professional with extensive experience in designing and managing complex infrastructure environments. I've led the successful delivery of critical greenfield projects and thrive on collaborating across teams to innovate and implement cutting-edge technology solutions.</p>
-    </section>
+  <header>
+    <p class="eyebrow">// résumé · 2026</p>
+    <h1>Sachin <em>Kumar</em></h1>
+    <div class="gold-rule"></div>
+    <p class="tagline">
+      AI Infrastructure Engineer
+      <span>·</span>
+      Senior DevOps
+      <span>·</span>
+      Cloud Platform
+    </p>
+    <div class="contact-row">
+      <span class="contact-item"><span class="pip"></span>Manchester, UK</span>
+      <span class="contact-item"><span class="pip"></span><a href="tel:07384082739">07384 082739</a></span>
+      <span class="contact-item"><span class="pip"></span><a href="mailto:sachinyadavg@gmail.com">sachinyadavg@gmail.com</a></span>
+    </div>
+  </header>
 
-    <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <ul>
-            <li>AWS</li>
-            <li>Terraform</li>
-            <li>Docker</li>
-            <li>ECS/EKS</li>
-            <li>Kubernetes</li>
-            <li>Git</li>
-            <li>CI/CD</li>
-            <li>Python</li>
-            <li>Linux</li>
-        </ul>
-    </section>
+  <div class="section">
+    <p class="section-label">Profile</p>
+    <p class="profile-text">
+      Seasoned Cloud &amp; DevOps Engineer with <strong>10+ years of experience</strong>, now specialising in AI Infrastructure. Deep hands-on expertise designing and operating the platforms that run AI/ML workloads at scale — including managed AI agent runtimes, vector memory stores, multi-agent orchestration, and LLM tool-integration pipelines using <strong>AWS Bedrock AgentCore</strong>. Combines strong IaC (Terraform), container orchestration (EKS/ECS, Kubernetes), and CI/CD automation skills with a growing track record in building reliable, observable AI infrastructure. AWS Certified DevOps Professional, Solutions Architect Professional, Solutions Architect Associate, and Certified Kubernetes Administrator.
+    </p>
+  </div>
 
-    <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <ul>
-            <li>
-                <h3>Senior DevOps Engineer</h3>
-                <h4>Awaze Vacation Rentals Ltd., Manchester | March 2022 — Present</h4>
-                <p>
-                    <strong>Automated Infrastructure Management:</strong> Spearheaded the transformation of manual infrastructure into fully automated environments using Terraform, significantly improving efficiency and reducing human error.
-                </p>
-                <p>
-                    <strong>Optimized Infrastructure as Code (IaC):</strong> Developed and implemented shared Terraform modules, eliminating redundancy and enhancing consistency across the infrastructure codebase.
-                </p>
-                <p>
-                    <strong>Architectural Leadership:</strong> Actively contributed to the Architecture Group, playing a key role in the design and architecture of cloud-based solutions on AWS.
-                </p>
-                <p>
-                    <strong>Continuous Integration/Continuous Deployment (CI/CD) Automation:</strong> Engineered automated build and deployment processes in GitHub and AWS, streamlining development workflows and reducing deployment times.
-                </p>
-                <p>
-                    <strong>CI/CD Pipeline Architecture:</strong> Designed and implemented robust CI/CD pipelines using AWS services such as CodeCommit, CodeDeploy, CodeBuild, and CodePipeline, ensuring seamless and reliable code delivery.
-                </p>
-                <p>
-                    <strong>Hybrid Cloud Optimization:</strong> Implemented GitHub Self-Hosted runners to address challenges related to hybrid cloud models, enhancing system performance and reliability.
-                </p>
-                <p>
-                    <strong>AWS Well-Architected Review:</strong> Conducted comprehensive reviews of AWS accounts against the AWS Well-Architected Framework, ensuring adherence to best practices and improving system robustness.
-                </p>
-                <p>
-                    <strong>ECS Fargate Implementation:</strong> Developed and deployed Terraform modules for Amazon ECS Fargate, enabling scalable and efficient container orchestration.
-                </p>
-                <p>
-                    <strong>CI/CD Pipeline with GitHub and AWS Integration:</strong> Led the creation of a Terraform-based deployment pipeline integrating GitHub Actions with AWS CodePipeline and CodeCommit, enhancing the automation and reliability of deployments.
-                </p>
-                <p>
-                    <strong>Cloud Migration Leadership:</strong> Led the migration of an on-premises Docker Swarm cluster to AWS, overseeing the architecture, implementation, and setup, including ECS Fargate, ALB, and integration with GitHub Actions and other AWS services.
-                </p>
-                <p>
-                    <strong>AWS Services Expertise:</strong> Extensively utilized a wide range of AWS services, including VPC, EC2, Route 53, ECS, Lambda, SNS, RDS, and WAF, to deliver secure, scalable, and high-performance cloud solutions.
-                </p>
-            </li>
-            <!-- Additional experiences go here -->
-        </ul>
-    </section>
-    
+  <div class="section">
+    <p class="section-label">Core Skills</p>
+    <div class="skill-group">
+      <p class="skill-group-label">// AI &amp; Agent Infrastructure</p>
+      <div class="tags">
+        <span class="tag ai">Bedrock AgentCore</span>
+        <span class="tag ai">Agent Runtimes &amp; Sandboxes</span>
+        <span class="tag ai">Multi-Agent Orchestration</span>
+        <span class="tag ai">Memory / Vector DB</span>
+        <span class="tag ai">LLM Tool Integration</span>
+        <span class="tag ai">Model Context Protocol (MCP)</span>
+        <span class="tag ai">Knowledge Bases</span>
+        <span class="tag ai">LLM Guardrails</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-label">// Cloud &amp; Platform</p>
+      <div class="tags">
+        <span class="tag">AWS (Expert)</span>
+        <span class="tag">Terraform / IaC</span>
+        <span class="tag">EKS / Kubernetes</span>
+        <span class="tag">ECS Fargate</span>
+        <span class="tag">ArgoCD / GitOps</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">Docker</span>
+        <span class="tag">EventBridge</span>
+        <span class="tag">CloudFront / CDN</span>
+        <span class="tag">API Gateway</span>
+        <span class="tag">IAM &amp; Security</span>
+        <span class="tag">AWS Config</span>
+        <span class="tag">Python / Lambda</span>
+        <span class="tag">Azure</span>
+      </div>
+    </div>
+  </div>
 
-    <section id="certifications">
-        <h2 class="section-title">Certifications</h2>
-        <ul>
-            <li>AWS Certified Solutions Architect Associate</li>
-            <li>AWS Certified DevOps Professional</li>
-            <li>Certified Kubernetes Administrator</li>
-            <li>Microsoft Certified Azure Administrator Associate</li>
-        </ul>
-    </section>
+  <div class="section">
+    <p class="section-label">Experience</p>
 
-    <section id="blogs">
-        <h2 class="section-title">Blog</h2>
-        <p>In the future, I’ll be sharing my thoughts on DevOps, cloud infrastructure, and more. Stay tuned!</p>
-    </section>
+    <div class="job">
+      <div class="job-header">
+        <p class="job-title">Senior DevOps &amp; AI Infrastructure Engineer</p>
+        <span class="job-dates">Mar 2022 — Present</span>
+      </div>
+      <p class="job-company">Awaze Vacation Rentals Ltd. · Manchester, UK</p>
+      <p class="subsection-title">// AI Agent Infrastructure — AWS Bedrock AgentCore</p>
+      <ul class="bullets">
+        <li>Architected and deployed <strong>AI agent infrastructure</strong> using AWS Bedrock AgentCore — a managed platform for building, running, and operating autonomous AI agents (analogous to agent hosting on Azure AI Foundry and GCP Vertex AI Agent Builder).</li>
+        <li>Provisioned and managed <strong>agent runtime environments</strong> (isolated, scalable sandboxes) that execute LLM-driven agent logic, handling concurrency, lifecycle, and resource isolation — equivalent to containerised agent execution platforms in cloud-agnostic terms.</li>
+        <li>Integrated <strong>tool/API connectors</strong> into agent workflows enabling agents to invoke internal microservices, third-party APIs, and data pipelines as callable actions — following the Model Context Protocol (MCP) pattern used across the AI industry.</li>
+        <li>Configured <strong>agent memory and knowledge stores</strong> using managed vector databases and session memory layers, enabling agents to retrieve contextual information across multi-turn interactions.</li>
+        <li>Designed <strong>multi-agent orchestration topologies</strong>: supervisor agents delegating tasks to specialist sub-agents (search, data retrieval, summarisation), with tracing, retry logic, and guardrails at infrastructure level.</li>
+        <li><strong>Terraformed all AgentCore resources</strong> (agents, knowledge bases, action groups, aliases) as reusable modules enabling repeatable deployments across dev/staging/prod environments.</li>
+        <li>Integrated AgentCore deployments into <strong>GitHub Actions CI/CD pipelines</strong> with blue/green promotion and automated smoke testing against agent endpoints.</li>
+      </ul>
+      <p class="subsection-title">// Cloud Platform &amp; DevOps</p>
+      <ul class="bullets">
+        <li>Terraformed the entire existing handmade AWS estate into structured IaC; authored shared Terraform modules eliminating infrastructure redundancy across teams.</li>
+        <li>Architected and delivered migration of on-prem <strong>Docker Swarm to AWS ECS Fargate</strong> — covering design, ALB, CodePipeline, GitHub Actions integration, and multi-env rollout.</li>
+        <li>Built centralised <strong>EventBridge solution</strong> to ingest Salesforce events and fan them out securely across multiple AWS accounts, with event filtering and schema transformation.</li>
+        <li>Migrated CDN workloads from <strong>Akamai to CloudFront</strong> — led planning, architecture, and implementation phases.</li>
+        <li>Set up <strong>IAM Identity Centre (AWS SSO)</strong> replacing per-account IAM users with access keys across the entire AWS organisation.</li>
+        <li>Implemented <strong>AWS EKS clusters with ArgoCD</strong> for GitOps-driven application deployment; authored reusable ECS Fargate and EKS Terraform modules.</li>
+        <li>Architected API Gateway solutions with integrated auth/authorisation; provisioned external IAM access for third-party integrations using External ID pattern.</li>
+        <li>Deployed AWS Config rules with automated <strong>Lambda-based remediation</strong>; maintained Well-Architected review cadence.</li>
+      </ul>
+    </div>
 
-    <section id="contact">
-        <h2 class="section-title">Contact</h2>
-        <p>If you’d like to get in touch, feel free to reach out via email or connect with me on LinkedIn.</p>
-        <p>Email: <a href="mailto:sachinyadavg@gmail.com">sachinyadavg@gmail.com</a></p>
-        <p>
-            <a href="https://www.linkedin.com/in/sachin-k-yadav-73909728/" class="linkedin-icon" target="_blank">
-                <!-- LinkedIn SVG Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.762 0-5 2.238-5 5v14c0 2.762 2.238 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.762-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.359c0-1.282-.026-2.932-1.787-2.932-1.788 0-2.063 1.396-2.063 2.838v5.453h-3v-10h2.879v1.367h.041c.401-.759 1.38-1.56 2.841-1.56 3.038 0 3.599 2.001 3.599 4.604v5.589z"/>
-                </svg>
-                Connect with me on LinkedIn
-            </a>
-        </p>
-    </section>
+    <div class="job">
+      <div class="job-header">
+        <p class="job-title">DevOps Engineer</p>
+        <span class="job-dates">Nov 2020 — Mar 2022</span>
+      </div>
+      <p class="job-company">CDL Software · Stockport, UK</p>
+      <ul class="bullets">
+        <li>Managed and evolved client AWS infrastructure for multiple insurance-sector customers; migrated on-prem applications to AWS.</li>
+        <li>Authored <strong>Terraform modules</strong> for infrastructure provisioning; set up Atlantis for collaborative, PR-based Terraform workflows shared across teams.</li>
+        <li>Built <strong>GitLab CI pipelines</strong> for containerised application builds pushing images to AWS ECR; wrote Terraform-managed CodePipeline stacks triggering on ECR pushes.</li>
+        <li>Delivered multi-region access project using <strong>AWS WAF, CloudFront, and Global Accelerator</strong>; upskilled junior engineers on cloud-native patterns.</li>
+      </ul>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 Sachin Kumar</p>
-    </footer>
+    <div class="job">
+      <div class="job-header">
+        <p class="job-title">Senior Infrastructure Consultant</p>
+        <span class="job-dates">Jan 2017 — Oct 2020</span>
+      </div>
+      <p class="job-company">NTT Data UK · Glasgow, UK</p>
+      <ul class="bullets">
+        <li>Managed 200+ Linux EC2 instances; authored modular <strong>Ansible playbooks</strong> for configuration management and patching via AWS Systems Manager.</li>
+        <li>Monitored infrastructure with Zabbix and CloudWatch; managed WAF (Imperva/Incapsula) policies, IAM, ACLs, and security groups.</li>
+        <li>Wrote <strong>Lambda functions</strong> for scheduled automation; managed S3 storage, AMI backups, and centralised Linux user management via Red Hat IdM.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <p class="job-title">Senior Linux Administrator</p>
+        <span class="job-dates">Jul 2015 — Jan 2017</span>
+      </div>
+      <p class="job-company">Wipro Infotech · Gurgaon, India</p>
+      <ul class="bullets">
+        <li>Managed AWS EC2 fleet — instance provisioning, capacity planning, <strong>ASG/ELB configuration</strong>, CloudWatch monitoring, and SNS alerting.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <p class="job-title">Software Consultant</p>
+        <span class="job-dates">Jul 2014 — Jul 2015</span>
+      </div>
+      <p class="job-company">Six Sigma Soft Solutions · New Delhi, India</p>
+      <ul class="bullets">
+        <li>Administered VMware ESXi estate; managed VCS clusters, LVM storage, web server stack (Apache/Nginx/Tomcat), and MySQL/MongoDB databases.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">Certifications</p>
+    <div class="certs-grid">
+      <div class="cert-card"><p class="cert-logo">AWS</p><p class="cert-name">Certified DevOps Engineer – Professional</p></div>
+      <div class="cert-card"><p class="cert-logo">AWS</p><p class="cert-name">Certified Solutions Architect – Professional</p></div>
+      <div class="cert-card"><p class="cert-logo">AWS</p><p class="cert-name">Certified Solutions Architect – Associate</p></div>
+      <div class="cert-card"><p class="cert-logo">CNCF</p><p class="cert-name">Certified Kubernetes Administrator (CKA)</p></div>
+      <div class="cert-card"><p class="cert-logo">Microsoft</p><p class="cert-name">Certified Azure Administrator Associate</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">Education</p>
+    <div class="edu-row">
+      <div>
+        <p class="edu-degree">B.Tech — Information Technology</p>
+        <p class="edu-school">Uttar Pradesh Technical University</p>
+      </div>
+      <span class="edu-year">2008 – 2011</span>
+    </div>
+    <div class="edu-row">
+      <div>
+        <p class="edu-degree">Diploma — Information Technology</p>
+        <p class="edu-school">Board of Technical Education, UP</p>
+      </div>
+      <span class="edu-year">2005 – 2008</span>
+    </div>
+  </div>
+
 </div>
+
+<button class="print-btn" onclick="window.print()">⎙ &nbsp;Print / PDF</button>
 
 </body>
 </html>
